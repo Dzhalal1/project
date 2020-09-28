@@ -10,18 +10,19 @@ module.exports = {
   },
   module: {
     rules: [
+
       {
         test: /\.css$/,
         use: [
           'vue-style-loader',
           'css-loader'
         ],
-      },      {
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {
-          }
+          loaders: {}
           // other vue-loader options go here
         }
       },
@@ -36,6 +37,23 @@ module.exports = {
         options: {
           name: '[name].[ext]'
         }
+      },
+       {
+        test: /\.s(c|a)ss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+              sassOptions: {
+                fiber: require('fibers'),
+                indentedSyntax: true // optional
+              },
+            },
+          },
+        ],
       }
     ]
   },
@@ -76,3 +94,4 @@ if (process.env.NODE_ENV === 'production') {
     })
   ])
 }
+

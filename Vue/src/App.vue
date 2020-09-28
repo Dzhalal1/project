@@ -1,33 +1,77 @@
 <template>
-  <div class="container">
+  <v-app>
+    <v-navigation-drawer
+      app
+      temporary
+      v-model="drawer"
+    >
+      <v-card
+        class="mx-auto"
+        width="300"
+      >
+        <v-list>
+          <v-list-item @click="">
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="">
+            <v-list-item-icon>
+              <v-icon>mdi-lock</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Login</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="">
+            <v-list-item-icon>
+              <v-icon>mdi-message-text</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Ask</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-card>
+    </v-navigation-drawer>
+    <v-card
+      color="grey lighten-4"
+      flat
+      height="200px"
+      tile
+    >
+      <v-toolbar dark>
+        <v-app-bar-nav-icon @click="drawer = !drawer" class="dropdown-menu-md-left"></v-app-bar-nav-icon>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-      <a class="navbar-brand" href="#">
-        <img src="./assets/mers.png" height="40" width="150"/>
-      </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav m-auto">
-          <router-link tag="li" class="nav-item" exact to="/" active-class="active">
-            <a class="nav-link">Home</a>
-          </router-link>
-          <router-link tag="li" class="nav-item" exact to="/cars" active-class="active">
-            <a class="nav-link">Cars</a>
-          </router-link>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-dark mr-sm-2" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
-    <router-view></router-view>
-  </div>
+        <v-toolbar-title>Mercedes-Benz</v-toolbar-title>
+
+        <v-spacer></v-spacer>
+
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-account-plus</v-icon>
+        </v-btn>
+      </v-toolbar>
+    </v-card>
+
+    <div style="background-color: red" class="d-md-none">
+      <button>ffgfgf</button>
+    </div>
+
+  </v-app>
 </template>
 
 
 <script>
-  export default {}
+  export default {
+    data() {
+      return {
+        drawer: false
+
+
+      }
+    }
+  }
 </script>
-<style>
+<style scoped>
 
 </style>
